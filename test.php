@@ -7,6 +7,13 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <link href="" rel="stylesheet">
+<style type="text/css">
+	span{
+		display: inline-block;
+		margin: 0;
+		padding: 0 5px;
+	}
+</style>
 </head>
 <body style="font-size:10px;">
     <?php
@@ -70,12 +77,12 @@ $b_str='';
 for ($i=0; $i < $font_height; $i++) {
 	$n=$i;
 	for ($r=0; $r < mb_strlen($str,'utf8'); $r++) {
-		$b_str.=str_replace('1','说',str_replace('0', '&nbsp;', $rows[$n]));
+		$b_str.=str_replace('1','说',str_replace('0', '　', $rows[$n])).'　';
 		$n+=$font_height;
 	}
-	$b_str.='<br>';
+	$b_str.="\r\n";
 }
-echo $b_str;
+echo '<textarea readonly style="height:400px;width:100%;">'.$b_str.'</textarea>';
 ?>
 </body>
 </html>
