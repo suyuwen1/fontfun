@@ -7,7 +7,9 @@
  * @Copyright www.ugia.cn  
  */
 
-$str = "中华人民共和国";
+$str = "中华人民共和国a";
+
+echo mb_internal_encoding();
 
 $font_file_name   = "simsun12.fon"; // 点阵字库文件名
 $font_width       = 12;  // 单字宽度
@@ -48,12 +50,17 @@ fclose($fp);
 
 //echo $dot_string;
 
-$rows=str_split($dot_string,(12*12));
+echo strlen($str);
 
-foreach ($rows as $key => $value) {
-	$row=str_split($value,$font_width);
-	foreach ($row as $key2 => $value2) {
-		echo str_replace('1','@',$value2).' <br>';
+$rows=str_split($dot_string,$font_width);
+
+$b_str='';
+for ($i=0; $i < $font_height; $i++) {
+	$n=$i;
+	for ($r=0; $r < mb_strlen($str); $r++) {
+		$b_str.=str_replace('1', '@', $rows[$n]).' ';
+		$n+=$font_height;
 	}
-	echo '<br>';
+	$b_str.='<br>';
 }
+echo $b_str;
