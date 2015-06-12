@@ -28,7 +28,7 @@
  * @Copyright www.ugia.cn  
  */
 
-$str = "中国民423142134人14234民1234共和斯拉@@夫@$%^*&(*)(dasg好！fafafasdfasdf。13241234.Welcome!";
+$str = "中国";
 $str = iconv('UTF-8', 'GB2312', $str);
 
 //echo strlen($str).'<br>';
